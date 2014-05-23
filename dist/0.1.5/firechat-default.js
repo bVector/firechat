@@ -1691,8 +1691,9 @@ this["FirechatDefaultTemplates"]["templates/user-search-list-item.html"] = funct
     var $messages = self.$messages[roomId];
     if ($messages) {
 
+      $messages.append($message);
       var scrollToBottom = false;
-      if ($messages.scrollTop() / ($messages[0].scrollHeight - $messages[0].offsetHeight) >= 0.95) {
+      if ($messages.scrollTop() / ($messages[0].scrollHeight - $messages[0].offsetHeight) >= 0.75) {
         // Pinned to bottom
         scrollToBottom = true;
       } else if ($messages[0].scrollHeight <= $messages.height()) {
@@ -1700,7 +1701,7 @@ this["FirechatDefaultTemplates"]["templates/user-search-list-item.html"] = funct
         scrollToBottom = true;
       }
 
-      $messages.append($message);
+      
 
       if (scrollToBottom) {
         $messages.scrollTop($messages[0].scrollHeight);
